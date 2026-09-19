@@ -448,23 +448,65 @@ body {
 
   </div>
 </section>
-<section class="contact" id="kontakt">
-  <h2>Jetzt kostenlos anfragen</h2>
+<section class="contact" id="kontakt" style="padding:60px 20px; background:#ffffff;">
+  <div style="max-width:650px; margin:0 auto;">
+    
+    <h2 style="text-align:center; color:#1683c7; margin-bottom:10px;">
+      Kontaktieren Sie uns
+    </h2>
 
-  <p>
-    Sie benötigen eine Reinigung?
-    Kontaktieren Sie uns für ein unverbindliches Angebot.
-  </p>
+    <p style="text-align:center; margin-bottom:30px;">
+      Senden Sie uns Ihre Anfrage. Wir melden uns schnellstmöglich bei Ihnen.
+    </p>
 
-  <a class="button" href="tel:+4915777124427">
-    📞 Anrufen
-  </a>
+    <form action="https://formsubmit.co/reinigung.kurti@gmail.com"
+          method="POST"
+          enctype="multipart/form-data">
 
-  <a class="button button-dark"
-     href="mailto:reinigung.kurti@gmail.com">
-    ✉️ E-Mail schreiben
-  </a>
+      <input type="hidden" name="_subject" value="Neue Anfrage über kurti-reinigung.de">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
 
+      <input type="text"
+             name="Name"
+             placeholder="Name"
+             required
+             style="width:100%; padding:16px; margin-bottom:15px; border:1px solid #ccc; border-radius:8px; font-size:16px;">
+
+      <input type="email"
+             name="E-Mail"
+             placeholder="E-Mail"
+             required
+             style="width:100%; padding:16px; margin-bottom:15px; border:1px solid #ccc; border-radius:8px; font-size:16px;">
+
+      <input type="tel"
+             name="Telefon"
+             placeholder="Telefonnummer"
+             style="width:100%; padding:16px; margin-bottom:15px; border:1px solid #ccc; border-radius:8px; font-size:16px;">
+
+      <textarea name="Nachricht"
+                placeholder="Ihre Nachricht"
+                required
+                rows="7"
+                style="width:100%; padding:16px; margin-bottom:15px; border:1px solid #ccc; border-radius:8px; font-size:16px; resize:vertical;"></textarea>
+
+      <label style="display:block; margin-bottom:8px;">
+        Fotos oder Dateien anhängen:
+      </label>
+
+      <input type="file"
+             name="Anhang"
+             accept="image/*,.pdf"
+             multiple
+             style="width:100%; margin-bottom:20px;">
+
+      <button type="submit"
+              style="width:100%; padding:17px; border:none; border-radius:8px; background:#1683c7; color:white; font-size:17px; font-weight:bold; cursor:pointer;">
+        Anfrage senden
+      </button>
+
+    </form>
+  </div>
 </section>
 
 
