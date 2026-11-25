@@ -6,18 +6,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-
   <title>Kurti Reinigung | Reinigungsservice Hamburg</title>
   <meta name="description" content="Kurti Reinigung – zuverlässige und professionelle Reinigung in Hamburg. Fensterreinigung, Büroreinigung, Treppenhausreinigung und Wohnungsreinigung.">
-
   <style>
+    :root {
+      --navy: #14283F;
+      --gold: #C5A572;
+      --ivory: #FAF8F4;
+      --charcoal: #263238;
+      --muted: #647078;
+      --line: rgba(20,40,63,.12);
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
     body {
       font-family: "DM Sans", Arial, sans-serif;
-      color: #17202a;
-      background: #fff;
-      line-height: 1.7;
+      color: var(--charcoal);
+      background: var(--ivory);
       font-size: 16px;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -28,42 +35,41 @@
       line-height: 1.18;
       text-wrap: balance;
     }
-    p { line-height: 1.8; letter-spacing: .005em; }
+    p { line-height: 1.75; letter-spacing: .005em; }
     header {
-      background: #fff;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,.08);
       position: sticky;
-      top: 0;
       z-index: 100;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 17px 7%;
+      background: var(--ivory);
+      box-shadow: 0 2px 14px rgba(20,40,63,.08);
     }
-    .logo { font-size: 25px; font-weight: bold; color: #0878d1; }
+    .logo { color: var(--navy); font-size: 24px; font-weight: 700; letter-spacing: .055em; }
     nav a {
-      text-decoration: none;
-      color: #222;
       margin-left: 25px;
+      color: var(--navy);
+      font-size: 12px;
       font-weight: 600;
-      font-size: 13px;
-      letter-spacing: .045em;
+      letter-spacing: .055em;
+      text-decoration: none;
+      transition: color .2s ease;
     }
-    nav a:hover { color: #0878d1; }
+    nav a:hover { color: #9c7d4d; }
     .hero {
-      --navy: #101c2c;
-      --champagne: #d7bd88;
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      min-height: min(780px, calc(100svh - 78px));
       display: flex;
+      min-height: min(760px, calc(100svh - 76px));
       align-items: center;
-      padding: clamp(88px, 11vw, 150px) 8%;
-      color: #fff;
+      padding: clamp(80px, 10vw, 138px) 8%;
+      color: var(--ivory);
       background-color: var(--navy);
       background-image:
-        linear-gradient(90deg, rgba(10,21,35,.91) 0%, rgba(10,21,35,.78) 43%, rgba(10,21,35,.30) 100%),
+        linear-gradient(90deg, rgba(13,31,50,.92) 0%, rgba(13,31,50,.77) 45%, rgba(13,31,50,.32) 100%),
         url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=88");
       background-position: center, center 54%;
       background-size: cover;
@@ -71,234 +77,170 @@
     .hero::after {
       position: absolute;
       z-index: -1;
-      inset: 24px;
-      border: 1px solid rgba(215,189,136,.35);
+      inset: 23px;
+      border: 1px solid rgba(197,165,114,.42);
       content: "";
       pointer-events: none;
     }
-    .hero-content {
-      width: min(100%, 790px);
-      animation: hero-rise .9s cubic-bezier(.2,.7,.2,1) both;
-    }
+    .hero-content { width: min(100%, 790px); animation: hero-rise .9s cubic-bezier(.2,.7,.2,1) both; }
     .hero-kicker {
       display: flex;
       align-items: center;
       gap: 14px;
-      margin-bottom: 27px;
-      color: #d7bd88;
-      font-size: 12px;
+      margin-bottom: 25px;
+      color: #dec99e;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: .24em;
+      letter-spacing: .22em;
       text-transform: uppercase;
     }
-    .hero-kicker::before { width: 42px; height: 1px; background: #d7bd88; content: ""; }
-    .hero h1 {
-      max-width: 800px;
-      margin-bottom: 25px;
-      font-size: clamp(48px,7.1vw,88px);
-      font-weight: 400;
-      line-height: 1.03;
-      letter-spacing: -.035em;
-    }
-    .hero h1 span { color: #d7bd88; font-style: italic; }
-    .hero-description {
-      max-width: 610px;
-      margin-bottom: 38px;
-      color: rgba(255,255,255,.86);
-      font-size: clamp(17px,2vw,20px);
-      line-height: 1.8;
-    }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; }
+    .hero-kicker::before { width: 40px; height: 1px; background: var(--gold); content: ""; }
+    .hero h1 { max-width: 800px; margin-bottom: 22px; font-size: clamp(46px,7vw,84px); font-weight: 400; line-height: 1.04; letter-spacing: -.035em; }
+    .hero h1 span { color: #dec99e; font-style: italic; }
+    .hero-description { max-width: 610px; margin-bottom: 34px; color: rgba(250,248,244,.88); font-size: clamp(16px,1.8vw,19px); line-height: 1.8; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
     .button {
-      display: inline-block;
-      margin: 5px;
-      padding: 15px 25px;
-      border-radius: 8px;
-      background: #fff;
-      color: #0878d1;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .button-dark { background: #17202a; color: #fff; }
-    .hero .button {
       display: inline-flex;
-      min-height: 56px;
       align-items: center;
       justify-content: center;
-      margin: 0;
-      padding: 15px 25px;
-      border: 1px solid #d7bd88;
-      border-radius: 2px;
-      background: #d7bd88;
-      color: #162033;
+      gap: 9px;
+      min-height: 48px;
+      margin: 5px;
+      padding: 12px 21px;
+      border: 1px solid var(--gold);
+      border-radius: 3px;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: inherit;
       font-size: 13px;
       font-weight: 700;
-      letter-spacing: .055em;
-      transition: background .25s ease, color .25s ease, transform .25s ease, border-color .25s ease;
+      letter-spacing: .035em;
+      text-decoration: none;
+      transition: transform .22s ease, background .22s ease, color .22s ease;
     }
-    .hero .button:hover { transform: translateY(-2px); background: #ead9b7; border-color: #ead9b7; }
-    .hero .button-whatsapp {
-      border-color: rgba(255,255,255,.58);
-      background: rgba(12,24,40,.28);
-      color: #fff;
-      backdrop-filter: blur(8px);
-    }
-    .hero .button-whatsapp:hover { border-color: #d7bd88; background: rgba(215,189,136,.14); color: #fff; }
-    @keyframes hero-rise {
-      from { opacity: 0; transform: translateY(22px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-content { animation: none; }
-      .hero .button, .service { transition: none; }
-    }
-    section { padding: 75px 8%; }
-    .section-title { text-align: center; margin-bottom: 45px; }
-    .section-title h2 { font-size: clamp(32px,4vw,42px); color: #0878d1; margin-bottom: 12px; }
-    .section-title p { font-size: 16px; color: #59636e; }
-    .services {
-      --service-navy: #142236;
-      --service-gold: #c8ad78;
-      padding-top: 68px;
-      padding-bottom: 72px;
-      background: #f7f7f5;
-    }
-    .services .section-title { margin-bottom: 28px; }
-    .services .section-title h2 {
-      color: var(--service-navy);
-      font-size: clamp(29px,3.2vw,38px);
-      letter-spacing: -.02em;
-    }
-    .services .section-title p { color: #68717b; font-size: 15px; }
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0,1fr));
-      gap: 18px;
-      max-width: 1240px;
-      margin: 0 auto;
-    }
+    .button:hover { transform: translateY(-2px); background: #d7bd91; }
+    .button-dark { border-color: var(--navy); background: var(--navy); color: var(--ivory); }
+    .button svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .hero .button { min-height: 54px; margin: 0; padding: 14px 23px; }
+    .hero .button-whatsapp { border-color: rgba(250,248,244,.6); background: rgba(20,40,63,.35); color: var(--ivory); backdrop-filter: blur(7px); }
+    .hero .button-whatsapp:hover { border-color: var(--gold); background: rgba(197,165,114,.18); }
+    @keyframes hero-rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    section { padding: 64px 8%; }
+    .section-title { margin-bottom: 30px; text-align: center; }
+    .section-title h2 { margin-bottom: 9px; color: var(--navy); font-size: clamp(29px,3.4vw,38px); }
+    .section-title p { color: var(--muted); font-size: 15px; }
+    .services { padding-top: 55px; padding-bottom: 60px; background: var(--ivory); }
+    .services .section-title { margin-bottom: 24px; }
+    .service-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; max-width: 1240px; margin: 0 auto; }
     .service {
       overflow: hidden;
       padding: 0;
-      border: 1px solid rgba(20,34,54,.08);
-      border-radius: 8px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
       background: #fff;
-      box-shadow: 0 8px 26px rgba(19,31,46,.065);
+      box-shadow: 0 7px 22px rgba(20,40,63,.07);
       text-align: left;
       transition: transform .25s ease, box-shadow .25s ease;
     }
-    .service:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(19,31,46,.12); }
-    .service-visual {
-      position: relative;
-      height: 172px;
-      overflow: hidden;
-      background: #dce1e4;
-    }
-    .service-visual::after {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(12,25,42,.02) 35%, rgba(12,25,42,.42) 100%);
-      content: "";
-    }
-    .service-visual img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      transition: transform .55s cubic-bezier(.2,.7,.2,1);
-    }
-    .service:hover .service-visual img { transform: scale(1.045); }
+    .service:hover { transform: translateY(-3px); box-shadow: 0 13px 28px rgba(20,40,63,.12); }
+    .service-visual { position: relative; height: 164px; overflow: hidden; background: var(--ivory); }
+    .service-visual::after { position: absolute; inset: 0; background: linear-gradient(180deg,rgba(20,40,63,.02) 35%,rgba(20,40,63,.42)); content: ""; }
+    .service-visual img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .service:hover .service-visual img { transform: scale(1.04); }
     .service-icon {
       position: absolute;
       z-index: 1;
-      left: 16px;
-      bottom: 14px;
+      bottom: 12px;
+      left: 14px;
       display: grid;
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       place-items: center;
-      border: 1px solid rgba(232,214,177,.8);
+      border: 1px solid rgba(197,165,114,.88);
       border-radius: 50%;
-      background: rgba(16,28,44,.84);
-      color: #e2ca98;
-      backdrop-filter: blur(5px);
+      background: rgba(20,40,63,.9);
+      color: #e2ca9e;
     }
-    .service-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
-    .service-copy { padding: 18px 19px 20px; }
-    .service h3 {
-      margin-bottom: 7px;
-      color: var(--service-navy);
-      font-size: 21px;
-      line-height: 1.25;
-      letter-spacing: -.015em;
-    }
-    .service h3::after {
-      display: block;
-      width: 30px;
-      height: 1px;
-      margin-top: 10px;
-      background: var(--service-gold);
-      content: "";
-    }
-    .service p { color: #65707a; font-size: 13px; line-height: 1.65; }
-    .about { text-align: center; max-width: 900px; margin: auto; }
-    .about > p { color: #4c5661; font-size: 17px; }
-    .benefits { margin-top: 35px; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
-    .benefit { background: #eaf5fd; padding: 12px 20px; border-radius: 30px; font-weight: 600; font-size: 14px; letter-spacing: .015em; }
-    .contact { background: #0878d1; color: #fff; text-align: center; }
-    .contact h2 { font-size: clamp(32px,4vw,42px); margin-bottom: 15px; }
-    .contact p { margin-bottom: 25px; font-size: 17px; }
-    footer { background: #17202a; color: #fff; text-align: center; padding: 30px; }
-    footer p { margin: 5px; font-size: 14px; letter-spacing: .02em; }
-    html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
-
+    .service-icon svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
+    .service-copy { padding: 15px 17px 17px; }
+    .service h3 { margin-bottom: 7px; color: var(--navy); font-size: 20px; line-height: 1.25; }
+    .service h3::after { display: block; width: 28px; height: 1px; margin-top: 8px; background: var(--gold); content: ""; }
+    .service p { color: #5d686f; font-size: 13px; line-height: 1.62; }
+    #ueber-uns { background: #fff; }
+    .about { max-width: 900px; margin: auto; text-align: center; }
+    .about > p { color: #4f5b62; font-size: 16px; }
+    .benefits { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .benefit { padding: 9px 16px; border: 1px solid rgba(197,165,114,.38); border-radius: 30px; background: #f3ecdf; color: var(--navy); font-size: 13px; font-weight: 600; }
+    #galerie { background: var(--ivory); }
+    #galerie h2, #oeffnungszeiten h2 { margin-bottom: 8px; color: var(--navy) !important; font-size: clamp(28px,3.3vw,36px); }
+    #galerie > p, #oeffnungszeiten > p { color: var(--muted); font-size: 14px; }
+    #galerie img { background: var(--ivory) !important; }
+    #oeffnungszeiten { background: #f1eee7 !important; }
+    #oeffnungszeiten > div { border: 1px solid var(--line); background: #fff !important; box-shadow: 0 7px 22px rgba(20,40,63,.07) !important; }
+    #oeffnungszeiten > div p { color: var(--charcoal); font-size: 14px; }
+    #oeffnungszeiten > div p strong { color: var(--navy); }
+    #oeffnungszeiten > div p span[style] { color: #9c7d4d !important; }
+    .contact { background: var(--navy); color: var(--ivory); text-align: center; }
+    .contact h2 { margin-bottom: 12px; color: var(--ivory); font-size: clamp(30px,3.5vw,39px); }
+    .contact p { margin-bottom: 22px; color: rgba(250,248,244,.82); font-size: 16px; }
+    .contact .button { border-color: var(--gold); background: var(--gold); color: var(--navy); }
+    .contact .button-dark { border-color: rgba(250,248,244,.55); background: transparent; color: var(--ivory); }
+    .contact .button:hover { background: #d7bd91; }
+    footer { padding: 25px 20px; background: #102238; color: var(--ivory); text-align: center; }
+    footer p { margin: 4px; color: rgba(250,248,244,.78); font-size: 13px; letter-spacing: .02em; }
+    footer p strong { color: var(--ivory); }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
     @media (max-width: 1200px) {
-      header { display: block; width: 100%; padding: 15px; text-align: center; }
-      nav { display: grid; grid-template-columns: repeat(2,1fr); width: 100%; gap: 10px; margin-top: 15px; }
-      nav a { margin: 0; font-size: 13px; white-space: normal; }
+      header { display: block; width: 100%; padding: 14px 15px; text-align: center; }
+      nav { display: grid; grid-template-columns: repeat(2,1fr); width: 100%; gap: 9px; margin-top: 12px; }
+      nav a { margin: 0; font-size: 12px; }
       .hero, .services, section, footer { width: 100%; max-width: 100%; }
-      .hero { padding: 70px 22px; }
+      .hero { padding: 68px 22px; }
       .service-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
     }
     @media (max-width: 600px) {
       body { font-size: 15px; }
       .hero {
-        min-height: min(740px,calc(100svh - 110px));
-        padding: 82px 22px;
-        background-image:
-          linear-gradient(90deg, rgba(10,21,35,.88), rgba(10,21,35,.65)),
-          url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=88");
-        background-position: center, 58% center;
+        min-height: min(740px,calc(100svh - 105px));
+        padding: 78px 22px;
+        background-image: linear-gradient(90deg,rgba(13,31,50,.89),rgba(13,31,50,.66)),url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=88");
+        background-position: center,58% center;
       }
       .hero::after { inset: 12px; }
-      .hero h1 { font-size: clamp(44px,11.5vw,62px); }
-      .hero-kicker { font-size: 10px; letter-spacing: .18em; }
-      .hero-description { font-size: 16px; }
+      .hero h1 { font-size: clamp(42px,11vw,60px); }
+      .hero-kicker { font-size: 9px; letter-spacing: .16em; }
+      .hero-description { font-size: 15px; }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .hero .button { width: 100%; max-width: 380px; }
-      section { padding: 58px 22px; }
-      .section-title { margin-bottom: 32px; }
-      .services { padding: 46px 16px 50px; }
-      .services .section-title { margin-bottom: 21px; }
-      .services .section-title h2 { font-size: 30px; }
-      .services .section-title p { max-width: 330px; margin: 0 auto; font-size: 13px; line-height: 1.6; }
-      .service-grid { grid-template-columns: 1fr; gap: 12px; }
-      .service { display: grid; grid-template-columns: 116px minmax(0,1fr); min-height: 132px; border-radius: 7px; }
-      .service-visual { height: 100%; min-height: 132px; }
-      .service-visual::after { background: linear-gradient(90deg,rgba(12,25,42,.02),rgba(12,25,42,.24)); }
-      .service-icon { left: 10px; bottom: 10px; width: 34px; height: 34px; }
-      .service-icon svg { width: 17px; height: 17px; }
-      .service-copy { align-self: center; padding: 13px 13px 13px 15px; }
-      .service h3 { margin-bottom: 6px; font-size: 18px; line-height: 1.2; }
-      .service h3::after { width: 24px; margin-top: 7px; }
-      .service p { font-size: 12px; line-height: 1.5; }
-      .about > p { font-size: 15px; }
+      section { padding: 48px 20px; }
+      .section-title { margin-bottom: 24px; }
+      .services { padding: 42px 15px 46px; }
+      .services .section-title { margin-bottom: 19px; }
+      .services .section-title h2 { font-size: 29px; }
+      .services .section-title p { max-width: 330px; margin: auto; font-size: 13px; line-height: 1.55; }
+      .service-grid { grid-template-columns: 1fr; gap: 11px; }
+      .service { display: grid; grid-template-columns: 108px minmax(0,1fr); min-height: 126px; }
+      .service-visual { height: 100%; min-height: 126px; }
+      .service-visual::after { background: linear-gradient(90deg,rgba(20,40,63,.02),rgba(20,40,63,.24)); }
+      .service-icon { bottom: 9px; left: 9px; width: 33px; height: 33px; }
+      .service-icon svg { width: 16px; height: 16px; }
+      .service-copy { align-self: center; padding: 12px 11px 12px 13px; }
+      .service h3 { margin-bottom: 5px; font-size: 17px; }
+      .service h3::after { width: 23px; margin-top: 6px; }
+      .service p { font-size: 11.5px; line-height: 1.48; }
+      .about > p { font-size: 14px; }
+      #galerie { padding: 45px 15px !important; }
+      #galerie > div { grid-template-columns: repeat(auto-fit,minmax(240px,1fr)) !important; gap: 14px !important; }
+      #oeffnungszeiten { padding: 45px 16px !important; }
+      #oeffnungszeiten > div { padding: 18px !important; }
+      .contact h2 { font-size: 30px; }
+      .contact .button { min-width: min(100%,240px); }
     }
     @media (max-width: 360px) {
-      .service { grid-template-columns: 98px minmax(0,1fr); }
-      .service-copy { padding-left: 11px; padding-right: 10px; }
-      .service h3 { font-size: 16px; }
-      .service p { font-size: 11px; }
+      .service { grid-template-columns: 92px minmax(0,1fr); }
+      .service-copy { padding-left: 10px; padding-right: 9px; }
+      .service h3 { font-size: 15px; }
+      .service p { font-size: 10.5px; }
     }
   </style>
 </head>
@@ -337,56 +279,38 @@
         <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=900&q=82" alt="Professionelle Fensterreinigung">
         <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="1.5"></rect><path d="M12 4v16M4.5 12h15M7 8l2-2M15 18l2-2"></path></svg></span>
       </div>
-      <div class="service-copy">
-        <h3>Fensterreinigung</h3>
-        <p>Gründliche Reinigung von Fenstern, Glasflächen und Rahmen.</p>
-      </div>
+      <div class="service-copy"><h3>Fensterreinigung</h3><p>Gründliche Reinigung von Fenstern, Glasflächen und Rahmen.</p></div>
     </article>
     <article class="service">
       <div class="service-visual">
         <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e8f?auto=format&fit=crop&w=900&q=82" alt="Gepflegte Büroräume">
         <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="1.5"></rect><path d="M8 20v-4h8v4M7.5 8h2M14.5 8h2M7.5 11.5h2M14.5 11.5h2"></path></svg></span>
       </div>
-      <div class="service-copy">
-        <h3>Büroreinigung</h3>
-        <p>Saubere und gepflegte Arbeitsräume für Unternehmen und Büros.</p>
-      </div>
+      <div class="service-copy"><h3>Büroreinigung</h3><p>Saubere und gepflegte Arbeitsräume für Unternehmen und Büros.</p></div>
     </article>
     <article class="service">
       <div class="service-visual">
         <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=82" alt="Sauberer und gepflegter Innenbereich">
         <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V9l6-5 6 5v11M9 20v-6h6v6M7 10h10"></path></svg></span>
       </div>
-      <div class="service-copy">
-        <h3>Treppenhausreinigung</h3>
-        <p>Regelmäßige und zuverlässige Reinigung von Treppenhäusern.</p>
-      </div>
+      <div class="service-copy"><h3>Treppenhausreinigung</h3><p>Regelmäßige und zuverlässige Reinigung von Treppenhäusern.</p></div>
     </article>
     <article class="service">
       <div class="service-visual">
         <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=82" alt="Helles, gepflegtes Zuhause">
         <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3.5 10 8.5-7 8.5 7M5.5 9v11h13V9M9 20v-6h6v6"></path></svg></span>
       </div>
-      <div class="service-copy">
-        <h3>Wohnungsreinigung</h3>
-        <p>Professionelle Reinigung von Wohnungen und privaten Haushalten.</p>
-      </div>
+      <div class="service-copy"><h3>Wohnungsreinigung</h3><p>Professionelle Reinigung von Wohnungen und privaten Haushalten.</p></div>
     </article>
   </div>
 </section>
 
 <section id="ueber-uns">
   <div class="about">
-    <div class="section-title">
-      <h2>Kurti Reinigung</h2>
-      <p>Ihr zuverlässiger Reinigungspartner in Hamburg</p>
-    </div>
+    <div class="section-title"><h2>Kurti Reinigung</h2><p>Ihr zuverlässiger Reinigungspartner in Hamburg</p></div>
     <p>Wir legen großen Wert auf Sauberkeit, Zuverlässigkeit und persönliche Betreuung. Unser Ziel ist es, unseren Kunden einen professionellen und unkomplizierten Reinigungsservice zu bieten.</p>
     <div class="benefits">
-      <div class="benefit">✓ Zuverlässig</div>
-      <div class="benefit">✓ Professionell</div>
-      <div class="benefit">✓ Faire Preise</div>
-      <div class="benefit">✓ Persönlicher Service</div>
+      <div class="benefit">✓ Zuverlässig</div><div class="benefit">✓ Professionell</div><div class="benefit">✓ Faire Preise</div><div class="benefit">✓ Persönlicher Service</div>
     </div>
   </div>
 </section>
@@ -423,7 +347,7 @@
     <p style="display:flex; justify-content:space-between; margin:12px 0;"><strong>Mittwoch</strong><span>08:00–20:00</span></p>
     <p style="display:flex; justify-content:space-between; margin:12px 0;"><strong>Donnerstag</strong><span>08:00–20:00</span></p>
     <p style="display:flex; justify-content:space-between; margin:12px 0;"><strong>Freitag</strong><span>08:00–20:00</span></p>
-    <p style="display:flex; justify-content:space-between; margin:12px 0;"><strong>Samstag</strong><span>08:00–20:00</span></p>
+    <p style="display:flex; justify-content:space-between; margin:12px 0;"><strong>Samstag</strong><span>08:00���20:00</span></p>
     <p style="display:flex; justify-content:space-between; margin:12px 0;"><strong>Sonntag</strong><span style="color:#c0392b;">Geschlossen</span></p>
   </div>
 </section>
@@ -431,8 +355,8 @@
 <section class="contact" id="kontakt">
   <h2>Jetzt kostenlos anfragen</h2>
   <p>Sie benötigen eine Reinigung?<br>Kontaktieren Sie uns für ein unverbindliches Angebot.</p>
-  <a class="button" href="tel:+4915777124427">📞 Anrufen</a>
-  <a class="button button-dark" href="mailto:reinigung.kurti@gmail.com?subject=Reinigungsanfrage">✉️ E-Mail schreiben</a>
+  <a class="button" href="tel:+4915777124427"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h3l1.5 4-2 1.5a15 15 0 0 0 5.5 5.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 5 5.7 2 2 0 0 1 7 3.5Z"></path></svg>Anrufen</a>
+  <a class="button button-dark" href="mailto:reinigung.kurti@gmail.com?subject=Reinigungsanfrage"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>E-Mail schreiben</a>
 </section>
 
 <footer>
