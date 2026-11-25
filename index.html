@@ -52,56 +52,96 @@
     }
 
     .hero {
+      --navy: #101c2c;
+      --champagne: #d7bd88;
       position: relative;
       isolation: isolate;
-      min-height: 680px;
-      background:
-        linear-gradient(90deg, rgba(10, 25, 34, .82) 0%, rgba(10, 25, 34, .56) 52%, rgba(10, 25, 34, .12) 100%),
-        url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=2400&q=85") center 45% / cover no-repeat;
-      color: #ffffff;
+      overflow: hidden;
+      min-height: min(780px, calc(100svh - 78px));
       display: flex;
       align-items: center;
-      padding: clamp(72px, 10vw, 130px) 8%;
+      padding: clamp(88px, 11vw, 150px) 8%;
+      color: #fff;
+      background-color: var(--navy);
+      background-image:
+        linear-gradient(90deg, rgba(10, 21, 35, .91) 0%, rgba(10, 21, 35, .78) 43%, rgba(10, 21, 35, .30) 100%),
+        url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=88");
+      background-position: center, center 54%;
+      background-size: cover;
+    }
+
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      inset: 24px;
+      border: 1px solid rgba(215, 189, 136, .35);
+      content: "";
+      pointer-events: none;
     }
 
     .hero-content {
-      width: min(100%, 760px);
+      width: min(100%, 790px);
+      animation: hero-rise .9s cubic-bezier(.2, .7, .2, 1) both;
     }
 
     .hero-kicker {
-      margin-bottom: 18px;
-      color: #c5e7df;
-      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 27px;
+      color: var(--champagne);
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: .16em;
+      letter-spacing: .24em;
       text-transform: uppercase;
     }
 
-    .hero h1 {
-      max-width: 720px;
-      margin-bottom: 22px;
-      font-size: clamp(40px, 6vw, 72px);
-      line-height: 1.04;
-      letter-spacing: -.035em;
+    .hero-kicker::before {
+      width: 42px;
+      height: 1px;
+      background: var(--champagne);
+      content: "";
     }
 
-    .hero p {
-      max-width: 580px;
-      margin-bottom: 32px;
-      color: rgba(255, 255, 255, .9);
+    .hero h1 {
+      max-width: 800px;
+      margin-bottom: 25px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(48px, 7.1vw, 88px);
+      font-weight: 400;
+      line-height: 1.03;
+      letter-spacing: -.035em;
+      text-wrap: balance;
+    }
+
+    .hero h1 span {
+      color: var(--champagne);
+      font-style: italic;
+    }
+
+    .hero-description {
+      max-width: 610px;
+      margin-bottom: 38px;
+      color: rgba(255, 255, 255, .86);
       font-size: clamp(17px, 2vw, 20px);
-      line-height: 1.7;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
     }
 
     .button {
       display: inline-block;
-      background: white;
-      color: #0878d1;
+      margin: 5px;
       padding: 15px 25px;
       border-radius: 8px;
+      background: white;
+      color: #0878d1;
       text-decoration: none;
       font-weight: bold;
-      margin: 5px;
     }
 
     .button-dark {
@@ -110,23 +150,48 @@
     }
 
     .hero .button {
-      margin: 0 10px 10px 0;
-      padding: 15px 23px;
-      border: 1px solid #ffffff;
-      border-radius: 6px;
-      background: #ffffff;
-      color: #173a3a;
-      transition: transform .2s ease, background .2s ease;
+      display: inline-flex;
+      min-height: 56px;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 15px 25px;
+      border: 1px solid var(--champagne);
+      border-radius: 2px;
+      background: var(--champagne);
+      color: #162033;
+      font-size: 14px;
+      letter-spacing: .025em;
+      transition: background .25s ease, color .25s ease, transform .25s ease, border-color .25s ease;
     }
 
     .hero .button:hover {
       transform: translateY(-2px);
+      background: #ead9b7;
+      border-color: #ead9b7;
     }
 
     .hero .button-whatsapp {
-      border-color: rgba(255, 255, 255, .65);
-      background: rgba(255, 255, 255, .08);
-      color: #ffffff;
+      border-color: rgba(255, 255, 255, .58);
+      background: rgba(12, 24, 40, .28);
+      color: #fff;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero .button-whatsapp:hover {
+      border-color: var(--champagne);
+      background: rgba(215, 189, 136, .14);
+      color: #fff;
+    }
+
+    @keyframes hero-rise {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-content { animation: none; }
+      .hero .button { transition: none; }
     }
 
     section {
@@ -258,12 +323,7 @@
       }
 
       .hero {
-        padding: 55px 22px;
-      }
-
-      .hero h1 {
-        font-size: clamp(38px, 7vw, 58px);
-        line-height: 1.08;
+        padding: 70px 22px;
       }
 
       .service-grid {
@@ -273,24 +333,39 @@
 
     @media (max-width: 600px) {
       .hero {
-        min-height: 620px;
-        padding: 76px 22px;
-        background-position: 58% center;
+        min-height: min(740px, calc(100svh - 110px));
+        padding: 82px 22px;
         background-image:
-          linear-gradient(90deg, rgba(10, 25, 34, .78), rgba(10, 25, 34, .48)),
-          url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=85");
+          linear-gradient(90deg, rgba(10, 21, 35, .88), rgba(10, 21, 35, .65)),
+          url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=88");
+        background-position: center, 58% center;
+      }
+
+      .hero::after {
+        inset: 12px;
       }
 
       .hero h1 {
-        font-size: clamp(40px, 11vw, 54px);
+        font-size: clamp(46px, 12vw, 62px);
+      }
+
+      .hero-kicker {
+        font-size: 10px;
+        letter-spacing: .18em;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
       }
 
       .hero .button {
-        display: block;
         width: 100%;
-        max-width: 340px;
-        margin-right: 0;
-        text-align: center;
+        max-width: 380px;
       }
     }
   </style>
@@ -312,16 +387,17 @@
 
 <section class="hero" id="start">
   <div class="hero-content">
-    <p class="hero-kicker">Kurti Reinigung · Hamburg</p>
-    <h1>Ein sauberes Zuhause. Ein starker erster Eindruck.</h1>
-    <p>
-      Zuverlässige Reinigung für Privat- und Geschäftskunden –
-      persönlich, professionell und direkt aus Hamburg.
+    <p class="hero-kicker">Kurti Reinigung · Hamburg und Umgebung</p>
+    <h1>Exzellente Sauberkeit.<br><span>Höchste Ansprüche.</span></h1>
+    <p class="hero-description">
+      Ihr zuverlässiger Partner für professionelle Reinigungsdienstleistungen in Hamburg und Umgebung.
     </p>
-    <a class="button" href="#kontakt">Kostenloses Angebot anfragen</a>
-    <a class="button button-whatsapp"
-       href="https://wa.me/4915777124427?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20kostenloses%20Angebot."
-       target="_blank" rel="noopener noreferrer">Per WhatsApp schreiben</a>
+    <div class="hero-actions">
+      <a class="button" href="#kontakt">Kostenloses Angebot anfordern</a>
+      <a class="button button-whatsapp"
+         href="https://wa.me/4915777124427?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20kostenloses%20Angebot."
+         target="_blank" rel="noopener noreferrer">WhatsApp Kontakt</a>
+    </div>
   </div>
 </section>
 
